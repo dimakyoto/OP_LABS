@@ -83,9 +83,9 @@ void code() {
         cout << "Text " << i + 1 << ": " << texts[i].countDoubleCharOccurrences() << endl;
     }
 
-    // Sort texts by the number of doubled characters 
-    sortByDoubledChars(texts, stringnumbers);
-
+    // Sorts the given array of Text objects by the number of doubled characters in each text
+    void sortByDoubledChars(Text * texts, int n);
+    
     // Print text with the most doubled characters
     cout << endl << "Text with the most doubled characters: " << endl;
     texts[0].print();
