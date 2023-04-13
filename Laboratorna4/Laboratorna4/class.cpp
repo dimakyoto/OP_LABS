@@ -50,8 +50,9 @@
 
     //operators
     Numeral_2 & Numeral_2 :: operator++() {
+
         int res = binaryToDecimal(binaryNumber);
-        res++;
+        ++res;
         this->binaryNumber = decimalToBinary(res);
         return *this;
     }
