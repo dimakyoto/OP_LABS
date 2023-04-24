@@ -1,1 +1,4 @@
-﻿  Laboratorna4.vcxproj -> C:\Users\Dima\Desktop\OP_LABS\Laboratorna4\x64\Debug\Laboratorna4.exe
+﻿  class.cpp
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna4\Laboratorna4\class.cpp(41,9): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna4\Laboratorna4\class.cpp(44,37): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
+  Laboratorna4.vcxproj -> C:\Users\Dima\Desktop\OP_LABS\Laboratorna4\x64\Debug\Laboratorna4.exe
