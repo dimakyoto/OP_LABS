@@ -46,33 +46,33 @@ template<typename K, typename V>
 struct KeyValuePair {
     K key;
     V value;
+    KeyValuePair<K, V>* next;
+
+    KeyValuePair(const K& k, const V& v) : key(k), value(v), next(nullptr) {}
 };
 
 template<typename K, typename V>
 class HashTable {
 private:
     KeyValuePair<K, V>** table;
-    bool** isOccupied;
     int size;
 
 public:
     HashTable(int initialSize = 100) {
         size = initialSize;
         table = new KeyValuePair<K, V>* [size]();
-        isOccupied = new bool* [size]();
-        for (int i = 0; i < size; i++) {
-            table[i] = new KeyValuePair<K, V>[size]();
-            isOccupied[i] = new bool[size]();
-        }
     }
 
     ~HashTable() {
         for (int i = 0; i < size; i++) {
-            delete[] table[i];
-            delete[] isOccupied[i];
+            KeyValuePair<K, V>* current = table[i];
+            while (current) {
+                KeyValuePair<K, V>* next = current->next;
+                delete current;
+                current = next;
+            }
         }
         delete[] table;
-        delete[] isOccupied;
     }
 
     size_t hash(const K& key) const {
@@ -81,31 +81,34 @@ public:
 
     void insert(const K& key, const V& value) {
         int index = hash(key);
-        int startIndex = index;
-        int i = 1;
 
-        while (isOccupied[index][i]) {
-            index = (startIndex + i) % size;
-            i++;
+        
+        KeyValuePair<K, V>* current = table[index];
+        while (current) {
+            if (current->key == key) {
+                
+                current->value = value;
+                return;
+            }
+            current = current->next;
         }
 
-        table[index][i].key = key;
-        table[index][i].value = value;
-        isOccupied[index][i] = true;
+        
+        KeyValuePair<K, V>* newPair = new KeyValuePair<K, V>(key, value);
+        newPair->next = table[index];
+        table[index] = newPair;
     }
 
     V* search(const K& key) const {
         int index = hash(key);
-        int startIndex = index;
-        int i = 1;
 
-        while (isOccupied[index][i]) {
-            if (table[index][i].key == key) {
-                return &(table[index][i].value);
+        
+        KeyValuePair<K, V>* current = table[index];
+        while (current) {
+            if (current->key == key) {
+                return &(current->value);
             }
-
-            index = (startIndex + i) % size;
-            i++;
+            current = current->next;
         }
 
         return nullptr;
@@ -113,17 +116,36 @@ public:
 
     void remove(const K& key) {
         int index = hash(key);
-        int startIndex = index;
-        int i = 1;
 
-        while (isOccupied[index][i]) {
-            if (table[index][i].key == key) {
-                isOccupied[index][i] = false;
+        KeyValuePair<K, V>* previous = nullptr;
+        KeyValuePair<K, V>* current = table[index];
+        while (current) {
+            if (current->key == key) {
+                if (previous) {
+                    
+                    previous->next = current->next;
+                }
+                else {
+                    
+                    table[index] = current->next;
+                }
+                delete current;
                 return;
             }
+            previous = current;
+            current = current->next;
+        }
+    }
 
-            index = (startIndex + i) % size;
-            i++;
+    void clear() {
+        for (int i = 0; i < size; i++) {
+            KeyValuePair<K, V>* current = table[i];
+            while (current) {
+                KeyValuePair<K, V>* next = current->next;
+                delete current;
+                current = next;
+            }
+            table[i] = nullptr;
         }
     }
 
@@ -131,10 +153,10 @@ public:
         HashTable<K, V> newTable(newSize);
 
         for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if (isOccupied[i][j]) {
-                    newTable.insert(table[i][j].key, table[i][j].value);
-                }
+            KeyValuePair<K, V>* current = table[i];
+            while (current) {
+                newTable.insert(current->key, current->value);
+                current = current->next;
             }
         }
 
@@ -143,22 +165,15 @@ public:
 
     void print() const {
         for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if (isOccupied[i][j]) {
-                    cout << "(" << table[i][j].key << ", " << table[i][j].value << ") ";
-                }
+            KeyValuePair<K, V>* current = table[i];
+            while (current) {
+                cout << "(" << current->key << ", " << current->value << ") ";
+                current = current->next;
             }
         }
         cout << endl;
     }
 
-    void clear() {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                isOccupied[i][j] = false;
-            }
-        }
-    }
 
     void interface() {
         int choice;
