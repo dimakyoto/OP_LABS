@@ -1,0 +1,29 @@
+﻿  main.cpp
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(115,19): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(114,10): message : во время компиляции функции-члена класс шаблон "void HashTable<char,int>::remove(const K &)"
+          with
+          [
+              K=char
+          ]
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(201,23): message : см. первую ссылку на "HashTable<char,int>::remove" в "HashTable<char,int>::interface"
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\main.cpp(26,21): message : см. первую ссылку на "HashTable<char,int>::interface" в "main"
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\main.cpp(25,37): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "HashTable<char,int>"
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(98,19): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(97,8): message : во время компиляции функции-члена класс шаблон "V *HashTable<char,V>::search(const K &) const"
+          with
+          [
+              V=int,
+              K=char
+          ]
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(189,26): message : см. первую ссылку на "HashTable<char,int>::search" в "HashTable<char,int>::interface"
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\main.cpp(26,21): message : см. первую ссылку на "HashTable<char,int>::interface" в "main"
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(83,19): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(82,10): message : во время компиляции функции-члена класс шаблон "void HashTable<char,int>::insert(const K &,const V &)"
+          with
+          [
+              K=char,
+              V=int
+          ]
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(182,23): message : см. первую ссылку на "HashTable<char,int>::insert" в "HashTable<char,int>::interface"
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\main.cpp(26,21): message : см. первую ссылку на "HashTable<char,int>::interface" в "main"
+  Laboratorna6.vcxproj -> C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\x64\Debug\Laboratorna6.exe

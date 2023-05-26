@@ -1,3 +1,7 @@
-﻿  functions.cpp
-C:\Users\Dima\Desktop\Projects\Laboratorna5\Laboratorna5\functions.cpp(1,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-  Laboratorna5.vcxproj -> C:\Users\Dima\Desktop\Projects\Laboratorna5\x64\Debug\Laboratorna5.exe
+﻿  class.cpp
+  functions.cpp
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna5\Laboratorna5\functions.cpp(1,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  main.cpp
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna5\Laboratorna5\main.cpp(2,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  Создание кода...
+  Laboratorna5.vcxproj -> C:\Users\Dima\Desktop\OP_LABS\Laboratorna5\x64\Debug\Laboratorna5.exe
