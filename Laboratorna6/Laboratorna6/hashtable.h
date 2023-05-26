@@ -58,20 +58,58 @@ private:
     int size;
 
 public:
+    class Iterator {
+    private:
+        KeyValuePair<K, V>** table;
+        int size;
+        int currentIndex;
+        KeyValuePair<K, V>* currentPair;
+
+    public:
+        Iterator(KeyValuePair<K, V>** tbl, int sz, int index, KeyValuePair<K, V>* pair)
+            : table(tbl), size(sz), currentIndex(index), currentPair(pair) {}
+
+        bool operator==(const Iterator& other) const {
+            return currentIndex == other.currentIndex && currentPair == other.currentPair;
+        }
+
+        bool operator!=(const Iterator& other) const {
+            return !(*this == other);
+        }
+
+        KeyValuePair<K, V>& operator*() const {
+            return *currentPair;
+        }
+
+        KeyValuePair<K, V>* operator->() const {
+            return currentPair;
+        }
+
+        Iterator& operator++() {
+            if (currentPair && currentPair->next) {
+                currentPair = currentPair->next;
+            }
+            else {
+                while (++currentIndex < size) {
+                    if (table[currentIndex]) {
+                        currentPair = table[currentIndex];
+                        break;
+                    }
+                }
+                if (currentIndex == size)
+                    currentPair = nullptr;
+            }
+            return *this;
+        }
+    };
+
     HashTable(int initialSize = 100) {
         size = initialSize;
         table = new KeyValuePair<K, V>* [size]();
     }
 
     ~HashTable() {
-        for (int i = 0; i < size; i++) {
-            KeyValuePair<K, V>* current = table[i];
-            while (current) {
-                KeyValuePair<K, V>* next = current->next;
-                delete current;
-                current = next;
-            }
-        }
+        clear();
         delete[] table;
     }
 
@@ -81,19 +119,16 @@ public:
 
     void insert(const K& key, const V& value) {
         int index = hash(key);
-
-        
         KeyValuePair<K, V>* current = table[index];
+
         while (current) {
             if (current->key == key) {
-                
                 current->value = value;
                 return;
             }
             current = current->next;
         }
 
-        
         KeyValuePair<K, V>* newPair = new KeyValuePair<K, V>(key, value);
         newPair->next = table[index];
         table[index] = newPair;
@@ -101,9 +136,8 @@ public:
 
     V* search(const K& key) const {
         int index = hash(key);
-
-        
         KeyValuePair<K, V>* current = table[index];
+
         while (current) {
             if (current->key == key) {
                 return &(current->value);
@@ -116,17 +150,15 @@ public:
 
     void remove(const K& key) {
         int index = hash(key);
-
         KeyValuePair<K, V>* previous = nullptr;
         KeyValuePair<K, V>* current = table[index];
+
         while (current) {
             if (current->key == key) {
                 if (previous) {
-                    
                     previous->next = current->next;
                 }
                 else {
-                    
                     table[index] = current->next;
                 }
                 delete current;
@@ -163,17 +195,27 @@ public:
         *this = newTable;
     }
 
+    Iterator begin() const {
+        int index = 0;
+        while (index < size && !table[index]) {
+            index++;
+        }
+        if (index == size) {
+            return Iterator(table, size, size, nullptr);
+        }
+        return Iterator(table, size, index, table[index]);
+    }
+
+    Iterator end() const {
+        return Iterator(table, size, size, nullptr);
+    }
+
     void print() const {
-        for (int i = 0; i < size; i++) {
-            KeyValuePair<K, V>* current = table[i];
-            while (current) {
-                cout << "(" << current->key << ", " << current->value << ") ";
-                current = current->next;
-            }
+        for (auto it = begin(); it != end(); ++it) {
+            cout << "(" << it->key << ", " << it->value << ") ";
         }
         cout << endl;
     }
-
 
     void interface() {
         int choice;
@@ -232,3 +274,5 @@ public:
         }
     }
 };
+
+    

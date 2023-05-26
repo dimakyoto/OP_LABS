@@ -1,29 +1,29 @@
 ﻿  main.cpp
-C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(118,19): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(117,10): message : во время компиляции функции-члена класс шаблон "void HashTable<char,int>::remove(const K &)"
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(152,19): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(151,10): message : во время компиляции функции-члена класс шаблон "void HashTable<char,int>::remove(const K &)"
           with
           [
               K=char
           ]
-C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(216,23): message : см. первую ссылку на "HashTable<char,int>::remove" в "HashTable<char,int>::interface"
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(258,23): message : см. первую ссылку на "HashTable<char,int>::remove" в "HashTable<char,int>::interface"
 C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\main.cpp(26,21): message : см. первую ссылку на "HashTable<char,int>::interface" в "main"
 C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\main.cpp(25,37): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "HashTable<char,int>"
-C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(103,19): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(102,8): message : во время компиляции функции-члена класс шаблон "V *HashTable<char,V>::search(const K &) const"
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(138,19): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(137,8): message : во время компиляции функции-члена класс шаблон "V *HashTable<char,V>::search(const K &) const"
           with
           [
               V=int,
               K=char
           ]
-C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(204,26): message : см. первую ссылку на "HashTable<char,int>::search" в "HashTable<char,int>::interface"
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(246,26): message : см. первую ссылку на "HashTable<char,int>::search" в "HashTable<char,int>::interface"
 C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\main.cpp(26,21): message : см. первую ссылку на "HashTable<char,int>::interface" в "main"
-C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(83,19): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(82,10): message : во время компиляции функции-члена класс шаблон "void HashTable<char,int>::insert(const K &,const V &)"
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(121,19): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(120,10): message : во время компиляции функции-члена класс шаблон "void HashTable<char,int>::insert(const K &,const V &)"
           with
           [
               K=char,
               V=int
           ]
-C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(197,23): message : см. первую ссылку на "HashTable<char,int>::insert" в "HashTable<char,int>::interface"
+C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\hashtable.h(239,23): message : см. первую ссылку на "HashTable<char,int>::insert" в "HashTable<char,int>::interface"
 C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\Laboratorna6\main.cpp(26,21): message : см. первую ссылку на "HashTable<char,int>::interface" в "main"
   Laboratorna6.vcxproj -> C:\Users\Dima\Desktop\OP_LABS\Laboratorna6\x64\Debug\Laboratorna6.exe
