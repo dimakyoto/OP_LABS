@@ -212,7 +212,7 @@ public:
 
     void print() const {
         for (auto it = begin(); it != end(); ++it) {
-            cout << "(" << it->key << ", " << it->value << ") ";
+            cout << " (" << it->key << " : " << it->value << ") " << endl;
         }
         cout << endl;
     }
