@@ -1,0 +1,4 @@
+C:\Users\Dima\Desktop\OP_LABS\Laboraorna7\Laboraorna7\x64\Debug\Laboraorna7.vcxproj.AssemblyReference.cache
+C:\Users\Dima\Desktop\OP_LABS\Laboraorna7\Laboraorna7\x64\Debug\Laboraorna7.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\Dima\Desktop\OP_LABS\Laboraorna7\Laboraorna7\x64\Debug\Laboraorna7.MyForm.resources
+C:\Users\Dima\Desktop\OP_LABS\Laboraorna7\Laboraorna7\x64\Debug\Laboraorna7.vcxproj.GenerateResource.cache
